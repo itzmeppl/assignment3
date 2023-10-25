@@ -2,8 +2,8 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
+%%%%% NAME: Piraveen Dayananthan
+%%%%% NAME: Riddhima Garg
 %%%%% NAME:
 %
 % Add the required rules in the corresponding sections. 
@@ -14,8 +14,11 @@
 
 %%%%% SECTION: puzzleGenerateAndTestSession
 %%%%% Put your session for generate and test below
-
+Time: 2.125s
+Result: "The values of L,E,T,A,P,I,S,O,V respectively are: 1, 8, 3, 6, 4, 7, 2, 0, 9".
 
 
 %%%%% SECTION: puzzleInterleavingSession
 %%%%% Put your session for generate and test below
+Time: 0.0s
+Result: "The values of L,E,T,A,P,I,S,O,V respectively are: 1, 8, 3, 6, 4, 7, 2, 0, 9".
