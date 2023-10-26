@@ -20,6 +20,7 @@
 %%%%% solve predicate and prints out the results in an easy to read, human readable format.
 %%%%% The predicate "solve_and_print" should take in no arguments
 
+
 link(out,1).
 link(1,out).
 link(1,2).
@@ -38,7 +39,6 @@ allDiff([]).
 allDiff([H|T]):- not member(H,T), allDiff(T).
 
 
-
 trip(Start, End, Path) :-
     trip(Start, End, [Start], Path, []).
 
@@ -54,35 +54,44 @@ trip(Start, End, Visited, Path, AccPath) :-
 
 
 
+
 sys(1). sys(2). sys(3). sys(4). sys(5). sys(6).
-%sys(S1), sys(S2), sys(S3), sys(S4), sys(S5), sys(S6), 
 
 
-
-solve([Elby,Kim, Osborne, Tsuji, Wolverton, Zickerman,Catarina,Lizzie,Mona,Anthony,Daniel,Jamie,Pricenet, Sysworld, Univmoose, Banana, Firstbank,Netvue]):-
-
-lastN = [sys(Elby), sys(Kim), sys(Osborne), sys(Tsuji), sys(Wolverton), sys(Zickerman)],
-firstN = [sys(Catarina),sys(Lizzie),sys(Mona),sys(Anthony),sys(Daniel),sys(Jamie)],
-net_addr = [sys(Pricenet), sys(Sysworld), sys(Univmoose), sys(Banana), sys(Firstbank),sys(Netvue)],
-woman = [sys(Catarina),sys(Lizzie),sys(Mona),sys(Anthony)],
-man = [sys(Anthony),sys(Daniel),sys(Jamie)],
+solve([Elby,Kim,Osborne,Tsuji, Wolverton, Zickerman,Catarina,Lizzie,Mona,Anthony,Daniel,Jamie, Pricenet, Sysworld, Univmoose, Banana, Firstbank,Netvue]):-
 
 
-trip(Lizzie, Osborne, P1), append(P1, Lizzie, Pi), member(Pricenet, Pi),
+lastN = [Elby,Kim,Osborne,Tsuji, Wolverton, Zickerman],
+firstN = [Catarina,Lizzie,Mona,Anthony,Daniel,Jamie],
+net_addr = [Pricenet, Sysworld, Univmoose, Banana, Firstbank,Netvue],
+woman = [Catarina,Lizzie,Mona],
+man = [Anthony,Daniel,Jamie],
 
+
+sys(Osborne), sys(Lizzie), sys(Pricenet),
+trip(Lizzie, Osborne, P1), append(P1, [Lizzie], Pi), member(Pricenet, Pi),
+
+sys(Mona), sys(Wolverton), sys(Netvue),
 link(Mona, Wolverton), member(Netvue, [Mona, Wolverton]),
 
-trip(Anthony, Jamie, P2), append(P2, Anthony, Pii), member(Elby, Pii),
+sys(Zickerman), sys(Catarina),
+link(Zickerman, Catarina), link(Zickerman, Netvue),
 
-link(Daniel, out), link(Daniel, Sysworld),
+sys(Anthony), sys(Jamie), sys(Elby),
+trip(Anthony, Jamie, P2), append(P2, [Anthony], Pii), member(Elby, Pii),
 
-member(Tsuji, woman), trip(Jamie, Tsuji, P3), append(P3, Jamie, Piii), member(Univmoose, Piii),
+sys(Tsuji), sys(Univmoose),
+member(Tsuji, woman), trip(Jamie, Tsuji, P3), append(P3, [Jamie], Piii), member(Univmoose, Piii),
 
+sys(Daniel), sys(Sysworld),
+link(Daniel, out), link(Daniel, Sysworld), sys(Daniel) = sys(1),
+
+sys(Banana),
 member(Banana, woman),
 
-trip(Kim, out, P4), append(P4, Kim, Piv),member(Firstbank, Piv),
-
-link(Zickerman, Catarina), link(Zickerman, Netvue),
+sys(Kim), sys(Firstbank),
+trip(Kim, out, P4), append(P4, [Kim], Piv),member(Firstbank, Piv),
 
 
 allDiff(lastN), allDiff(firstN), allDiff(net_addr), allDiff(woman), allDiff(man).
+
